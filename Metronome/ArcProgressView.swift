@@ -9,8 +9,8 @@ import SwiftUI
 
 struct ArcProgressView: View {
     var gradient = Gradient(colors: [.green, .orange, .red])
-    @Clamping(0...1) var progress: CGFloat = 0 {
-        didSet {
+    @Binding @Clamping(0...1) var progress: CGFloat {
+        mutating didSet {
             value = Int(300 * progress)
         }
     }
@@ -23,35 +23,26 @@ struct ArcProgressView: View {
         )
     }
 
-    init(_ progress: CGFloat = 0.3) {
-        self.progress = progress
-    }
-    
-    private func strokeStyle(_ proxy: GeometryProxy) -> StrokeStyle {
+    private func strokeStyle(lineWidth: CGFloat = 25) -> StrokeStyle {
         StrokeStyle(
-            lineWidth: 0.1 * min(proxy.size.width, proxy.size.height),
+            lineWidth: lineWidth,
             lineCap: .round
         )
     }
     
-    
     public var body: some View {
-        GeometryReader { proxy in
-            VStack {
-                ZStack {
-                    Circle()
-                        .stroke(Color("progressBackground"),
-                                style: self.strokeStyle(proxy))
-                        .padding(.all, /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
-                    ArcShape(sliceDegress: 100)
-                        .trim(from: 0, to: progress)
-                        .stroke(self.strokeGradient,
-                                style: self.strokeStyle(proxy))
-                        .padding(.all, /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
-                        .animation(.easeInOut)
-                }
+        VStack {
+            ZStack {
+                Circle()
+                    .stroke(Color("progressBackground"),
+                            style: self.strokeStyle())
+                    
+                ArcShape(sliceDegress: 100)
+                    .trim(from: 0, to: progress)
+                    .stroke(self.strokeGradient,
+                            style: self.strokeStyle())
+                    .animation(.easeInOut)
             }
-            .frame(width: proxy.size.width, height: proxy.size.width)
         }
     }
 }
@@ -85,7 +76,8 @@ fileprivate struct ArcShape: Shape {
 
 
 struct ArcProgressView_Previews: PreviewProvider {
+    @State @Clamping(0...1) private static var progress: CGFloat = 1
     static var previews: some View {
-        ArcProgressView(0.8).padding(.all, 50)
+        ArcProgressView(progress: $progress).padding(.all, 50)
     }
 }

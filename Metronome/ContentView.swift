@@ -8,33 +8,44 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var progress: CGFloat = 1
+    @State @Clamping(0...1) private var progress: CGFloat = 1
+    var numbers = Array(10...300)
     let gradient = Gradient(colors: [.green, .orange, .red])
+    @State private var selectedValue = 110
     var body: some View {
         GeometryReader { proxy in
             VStack {
                 Spacer()
-                ZStack {
+                VStack {
                     ZStack(alignment: .bottom) {
-                        ArcProgressView(progress)
-                        Image("metronome_play")
-                            .resizable()
-                            .frame(width: 80, height: 80, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                            .offset(x: 0, y: 30)
+                    ZStack {
+                        Group {
+                            Circle()
+                            Picker(selection: $selectedValue, label: Text("")){
+                                ForEach(0..<numbers.count) {
+                                    Text("\(numbers[$0])").font(.largeTitle)
+                                        .foregroundColor(.white)
+                                }
+                            }.offset(x: 0, y: -10)
+                            ArcProgressView(progress:$progress)
+                        }
+                        .aspectRatio(contentMode: .fit)
+                        .padding(.horizontal, 35)
                     }
-                    .frame(width: proxy.size.width - 100,
-                           height: proxy.size.width - 100)
+                        Image("metronome_play")
+                            .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
+                            .offset(x: 0, y: 0)
+                    }
                 }
                 Spacer()
                 Rectangle()
-                    .fill(
-                        LinearGradient(gradient: gradient, startPoint: .leading, endPoint: .trailing)
-                    ).padding(.vertical)
+                    .fill(LinearGradient(gradient: gradient, startPoint: .leading, endPoint: .trailing))
+                    .padding(.vertical)
                     .frame(height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
                     .mask(Image("bgBottom"))
             }
         }
-        .background(Color.gray)
+        .background(Color.black.opacity(0.9))
         .ignoresSafeArea()
     }
 }

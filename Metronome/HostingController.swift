@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class HostingController: UIHostingController<ContentView> {
+class HostingController: UIHostingController<AnyView> {
     
     var statusBarStyle: UIStatusBarStyle = .lightContent {
         didSet {

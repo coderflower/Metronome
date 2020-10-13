@@ -18,6 +18,10 @@
 		DC60227E253545480042813E /* Clamping.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC60227D253545480042813E /* Clamping.swift */; };
 		DC602283253545560042813E /* ArcProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC602282253545560042813E /* ArcProgressView.swift */; };
 		DC60228F253546400042813E /* HostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC60228E253546400042813E /* HostingController.swift */; };
+		DC602297253550680042813E /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC602296253550680042813E /* UserSettings.swift */; };
+		DC60229C253551670042813E /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC60229B253551670042813E /* UserDefault.swift */; };
+		DC6022AC25357FBD0042813E /* NavigationBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6022AB25357FBD0042813E /* NavigationBarModifier.swift */; };
+		DC6022B1253582A40042813E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6022B0253582A40042813E /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +59,10 @@
 		DC60227D253545480042813E /* Clamping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Clamping.swift; sourceTree = "<group>"; };
 		DC602282253545560042813E /* ArcProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArcProgressView.swift; sourceTree = "<group>"; };
 		DC60228E253546400042813E /* HostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingController.swift; sourceTree = "<group>"; };
+		DC602296253550680042813E /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
+		DC60229B253551670042813E /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
+		DC6022AB25357FBD0042813E /* NavigationBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarModifier.swift; sourceTree = "<group>"; };
+		DC6022B0253582A40042813E /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +117,9 @@
 				DC60224B253545180042813E /* SceneDelegate.swift */,
 				DC60228E253546400042813E /* HostingController.swift */,
 				DC60224D253545180042813E /* ContentView.swift */,
+				DC6022B0253582A40042813E /* SettingsView.swift */,
+				DC602296253550680042813E /* UserSettings.swift */,
+				DC6022AB25357FBD0042813E /* NavigationBarModifier.swift */,
 				DC6022872535455A0042813E /* Views */,
 				DC60227C2535452F0042813E /* Wrapper */,
 				DC60224F2535451B0042813E /* Assets.xcassets */,
@@ -149,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				DC60227D253545480042813E /* Clamping.swift */,
+				DC60229B253551670042813E /* UserDefault.swift */,
 			);
 			path = Wrapper;
 			sourceTree = "<group>";
@@ -291,10 +303,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC60229C253551670042813E /* UserDefault.swift in Sources */,
 				DC60228F253546400042813E /* HostingController.swift in Sources */,
+				DC6022AC25357FBD0042813E /* NavigationBarModifier.swift in Sources */,
 				DC60227E253545480042813E /* Clamping.swift in Sources */,
 				DC60224A253545180042813E /* AppDelegate.swift in Sources */,
+				DC6022B1253582A40042813E /* SettingsView.swift in Sources */,
 				DC60224C253545180042813E /* SceneDelegate.swift in Sources */,
+				DC602297253550680042813E /* UserSettings.swift in Sources */,
 				DC60224E253545180042813E /* ContentView.swift in Sources */,
 				DC602283253545560042813E /* ArcProgressView.swift in Sources */,
 			);
@@ -466,14 +482,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Metronome/Preview Content\"";
-				DEVELOPMENT_TEAM = 5XERJB6TQW;
+				DEVELOPMENT_TEAM = 3SC45A32Q2;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Metronome/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.coder.cai.Metronome;
+				PRODUCT_BUNDLE_IDENTIFIER = com.coder.cai.metronome;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -487,14 +503,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Metronome/Preview Content\"";
-				DEVELOPMENT_TEAM = 5XERJB6TQW;
+				DEVELOPMENT_TEAM = 3SC45A32Q2;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Metronome/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.coder.cai.Metronome;
+				PRODUCT_BUNDLE_IDENTIFIER = com.coder.cai.metronome;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

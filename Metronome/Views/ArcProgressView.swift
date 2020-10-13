@@ -9,12 +9,8 @@ import SwiftUI
 
 struct ArcProgressView: View {
     var gradient = Gradient(colors: [.green, .orange, .red])
-    @Binding @Clamping(0...1) var progress: CGFloat {
-        mutating didSet {
-            value = Int(300 * progress)
-        }
-    }
-    @Clamping(10...300) var value: Int = 10
+    @Binding var progress: CGFloat
+    @EnvironmentObject var settings: UserSettings
     var strokeGradient: AngularGradient {
         AngularGradient(
             gradient: gradient,
@@ -37,7 +33,7 @@ struct ArcProgressView: View {
                     .stroke(Color("progressBackground"),
                             style: self.strokeStyle())
                 ArcShape(sliceDegress: 100)
-                    .trim(from: 0, to: progress)
+                    .trim(from: 0, to: settings.progress)
                     .stroke(self.strokeGradient,
                             style: self.strokeStyle())
             }
@@ -74,8 +70,10 @@ fileprivate struct ArcShape: Shape {
 
 
 struct ArcProgressView_Previews: PreviewProvider {
-    @State @Clamping(0...1) private static var progress: CGFloat = 1
+    @State static private var progress: CGFloat = 0.5
     static var previews: some View {
-        ArcProgressView(progress: $progress).padding(.all, 50)
+        ArcProgressView(progress: $progress)
+            .environmentObject(UserSettings())
+            .padding(.all, 50)
     }
 }

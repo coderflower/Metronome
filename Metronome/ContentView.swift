@@ -13,6 +13,7 @@ struct ContentView: View {
     @State private var isPlay: Bool = false
     @EnvironmentObject var settings: UserSettings
     @State private var progress: CGFloat = 0
+    @State var player = PlayerHelper()
     var body: some View {
         GeometryReader { proxy in
             NavigationView {
@@ -43,6 +44,7 @@ struct ContentView: View {
                         .offset(x: 0, y: 25)
                         .onTapGesture {
                             isPlay = !isPlay
+                            shouldPlay(isPlay)
                         }
                 }
             }
@@ -69,6 +71,7 @@ struct ContentView: View {
                 .onTapGesture {
                     if settings.selectedValue > settings.minValue {
                         settings.selectedValue -= 1
+                        player.beatValue = settings.selectedValue
                     }
                 }
             Text("\(settings.value)")
@@ -79,6 +82,7 @@ struct ContentView: View {
                 .onTapGesture {
                     if settings.selectedValue < settings.maxValue {
                         settings.selectedValue += 1
+                        player.beatValue = settings.selectedValue
                     }
                 }
         }
@@ -90,6 +94,14 @@ struct ContentView: View {
             .padding(.vertical)
             .frame(height: 100)
             .mask(Image("bgBottom"))
+    }
+    
+    func shouldPlay(_ play: Bool) {
+        if play {
+            player.play()
+        } else {
+            player.stop()
+        }
     }
 }
 

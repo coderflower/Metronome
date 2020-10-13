@@ -27,7 +27,7 @@ class UserSettings: ObservableObject {
     let maxValue: Int = 300
     init() {
         let selectedValue = UserDefaults.standard.integer(forKey: "User.selectedStepValue")
-        self.selectedValue = selectedValue == 0 ? 120 : selectedValue
+        self.selectedValue = selectedValue == 0 ? 150 : selectedValue
     }
 }
 

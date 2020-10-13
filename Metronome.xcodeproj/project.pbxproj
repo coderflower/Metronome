@@ -22,6 +22,9 @@
 		DC60229C253551670042813E /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC60229B253551670042813E /* UserDefault.swift */; };
 		DC6022AC25357FBD0042813E /* NavigationBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6022AB25357FBD0042813E /* NavigationBarModifier.swift */; };
 		DC6022B1253582A40042813E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6022B0253582A40042813E /* SettingsView.swift */; };
+		DCA0CA132535C88B009025FB /* beat.wav in Resources */ = {isa = PBXBuildFile; fileRef = DCA0CA122535C88B009025FB /* beat.wav */; };
+		DCA0CA1D2535C8E7009025FB /* MetronomeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA0CA1C2535C8E7009025FB /* MetronomeHelper.swift */; };
+		DCA0CA252535C94C009025FB /* PlayerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA0CA242535C94C009025FB /* PlayerHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +66,9 @@
 		DC60229B253551670042813E /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
 		DC6022AB25357FBD0042813E /* NavigationBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarModifier.swift; sourceTree = "<group>"; };
 		DC6022B0253582A40042813E /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		DCA0CA122535C88B009025FB /* beat.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = beat.wav; sourceTree = "<group>"; };
+		DCA0CA1C2535C8E7009025FB /* MetronomeHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetronomeHelper.swift; sourceTree = "<group>"; };
+		DCA0CA242535C94C009025FB /* PlayerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,9 +123,10 @@
 				DC60224B253545180042813E /* SceneDelegate.swift */,
 				DC60228E253546400042813E /* HostingController.swift */,
 				DC60224D253545180042813E /* ContentView.swift */,
-				DC6022B0253582A40042813E /* SettingsView.swift */,
+				DCA0CA182535C8C4009025FB /* Helpers */,
+				DCA0CA112535C7FD009025FB /* Resources */,
 				DC602296253550680042813E /* UserSettings.swift */,
-				DC6022AB25357FBD0042813E /* NavigationBarModifier.swift */,
+				DCA0CA172535C891009025FB /* Modifiers */,
 				DC6022872535455A0042813E /* Views */,
 				DC60227C2535452F0042813E /* Wrapper */,
 				DC60224F2535451B0042813E /* Assets.xcassets */,
@@ -168,9 +175,35 @@
 		DC6022872535455A0042813E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DC6022B0253582A40042813E /* SettingsView.swift */,
 				DC602282253545560042813E /* ArcProgressView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		DCA0CA112535C7FD009025FB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DCA0CA122535C88B009025FB /* beat.wav */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		DCA0CA172535C891009025FB /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				DC6022AB25357FBD0042813E /* NavigationBarModifier.swift */,
+			);
+			path = Modifiers;
+			sourceTree = "<group>";
+		};
+		DCA0CA182535C8C4009025FB /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				DCA0CA1C2535C8E7009025FB /* MetronomeHelper.swift */,
+				DCA0CA242535C94C009025FB /* PlayerHelper.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,6 +309,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCA0CA132535C88B009025FB /* beat.wav in Resources */,
 				DC6022562535451B0042813E /* LaunchScreen.storyboard in Resources */,
 				DC6022532535451B0042813E /* Preview Assets.xcassets in Resources */,
 				DC6022502535451B0042813E /* Assets.xcassets in Resources */,
@@ -306,12 +340,14 @@
 				DC60229C253551670042813E /* UserDefault.swift in Sources */,
 				DC60228F253546400042813E /* HostingController.swift in Sources */,
 				DC6022AC25357FBD0042813E /* NavigationBarModifier.swift in Sources */,
+				DCA0CA1D2535C8E7009025FB /* MetronomeHelper.swift in Sources */,
 				DC60227E253545480042813E /* Clamping.swift in Sources */,
 				DC60224A253545180042813E /* AppDelegate.swift in Sources */,
 				DC6022B1253582A40042813E /* SettingsView.swift in Sources */,
 				DC60224C253545180042813E /* SceneDelegate.swift in Sources */,
 				DC602297253550680042813E /* UserSettings.swift in Sources */,
 				DC60224E253545180042813E /* ContentView.swift in Sources */,
+				DCA0CA252535C94C009025FB /* PlayerHelper.swift in Sources */,
 				DC602283253545560042813E /* ArcProgressView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -36,12 +36,10 @@ struct ArcProgressView: View {
                 Circle()
                     .stroke(Color("progressBackground"),
                             style: self.strokeStyle())
-                    
                 ArcShape(sliceDegress: 100)
                     .trim(from: 0, to: progress)
                     .stroke(self.strokeGradient,
                             style: self.strokeStyle())
-                    .animation(.easeInOut)
             }
         }
     }

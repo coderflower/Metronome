@@ -2,51 +2,66 @@
 //  ContentView.swift
 //  Metronome
 //
-//  Created by 蔡龙君 on 2020/10/12.
+//  Created by 蔡龙君 on 2020/10/13.
 //
 
 import SwiftUI
 
 struct ContentView: View {
-    @State @Clamping(0...1) private var progress: CGFloat = 1
+    @State @Clamping(0...1) private var progress: CGFloat = 120 / 300.0
     var numbers = Array(10...300)
     let gradient = Gradient(colors: [.green, .orange, .red])
     @State private var selectedValue = 110
+    @State private var isPlay: Bool = false
     var body: some View {
         GeometryReader { proxy in
-            VStack {
-                Spacer()
-                VStack {
-                    ZStack(alignment: .bottom) {
-                    ZStack {
-                        Group {
-                            Circle()
-                            Picker(selection: $selectedValue, label: Text("")){
-                                ForEach(0..<numbers.count) {
-                                    Text("\(numbers[$0])").font(.largeTitle)
-                                        .foregroundColor(.white)
+            NavigationView {
+                ZStack {
+                    Color.black.opacity(0.9)
+                        .edgesIgnoringSafeArea(.all)
+                    VStack {
+                        Spacer()
+                        VStack {
+                            ZStack(alignment: .bottom) {
+                                ZStack {
+                                    Group {
+                                        Circle()
+                                        Picker(selection: $selectedValue, label: Text("")){
+                                            ForEach(0..<numbers.count) {
+                                                Text("\(numbers[$0])").font(.largeTitle)
+                                                    .foregroundColor(.white)
+                                            }
+                                        }.offset(x: 0, y: -10)
+                                        ArcProgressView(progress:$progress)
+                                    }
+                                    .aspectRatio(contentMode: .fit)
+                                    .padding(.horizontal, 35)
                                 }
-                            }.offset(x: 0, y: -10)
-                            ArcProgressView(progress:$progress)
+                                Image(isPlay ? "metronome_pause" : "metronome_play")
+                                    .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
+                                    .onTapGesture {
+                                        isPlay = !isPlay
+                                    }
+                            }
                         }
-                        .aspectRatio(contentMode: .fit)
-                        .padding(.horizontal, 35)
+                        Spacer()
+                        Rectangle()
+                            .fill(LinearGradient(gradient: gradient, startPoint: .leading, endPoint: .trailing))
+                            .padding(.vertical)
+                            .frame(height: 100)
+                            .mask(Image("bgBottom"))
                     }
-                        Image("metronome_play")
-                            .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
-                            .offset(x: 0, y: 0)
+                    .navigationBarItems(trailing: Image("settings"))
+                    .navigationBarTitle("跑呗节拍器")
+                    .onAppear {
+                        UINavigationBar.appearance()
+                            .largeTitleTextAttributes = [
+                                .foregroundColor: UIColor.white
+                            ]
                     }
                 }
-                Spacer()
-                Rectangle()
-                    .fill(LinearGradient(gradient: gradient, startPoint: .leading, endPoint: .trailing))
-                    .padding(.vertical)
-                    .frame(height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
-                    .mask(Image("bgBottom"))
             }
         }
-        .background(Color.black.opacity(0.9))
-        .ignoresSafeArea()
     }
 }
 
